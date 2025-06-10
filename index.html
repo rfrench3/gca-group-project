@@ -2,9 +2,62 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>title</title>
+    <title>Recipe Project</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="container">
+        <section class="recipe-list" style="flex: 1 1 100%;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="mb-0">Recipes</h3>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecipeModal">
+                    Add Recipe
+                </button>
+            </div>
+            <input type="text" id="search" placeholder="Search recipes">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cook Time</th>
+                        <th>Servings</th>
+                        <th>Rating <small>(click row to add)</small></th>
+                    </tr>
+                </thead>
+                <tbody id="recipesTable">
+                    <!-- Recipes will be listed here -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Bootstrap Modal for Add Recipe -->
+    <div class="modal fade" id="addRecipeModal" tabindex="-1" aria-labelledby="addRecipeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addRecipeModalLabel">Add Recipe</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="recipeForm">
+                <input type="text" name="name" class="form-control mb-2" placeholder="Name of recipe" required>
+                <input type="text" name="cookTime" class="form-control mb-2" placeholder="Cook time" required>
+                <input type="number" name="servings" class="form-control mb-2" placeholder="Servings" required>
+                <input type="text" name="ingredients" class="form-control mb-2" placeholder="Ingredients (comma separated)" required>
+                <input type="text" name="pan" class="form-control mb-2" placeholder="Pan/oven dish/etc.">
+                <input type="text" name="nutrition" class="form-control mb-2" placeholder="Nutrition facts">
+                <button type="submit" class="btn btn-success w-100">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
